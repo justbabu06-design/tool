@@ -1,16 +1,831 @@
 ---
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Resume Builder for MNC Jobs - India">
+	<main class="container">
+		<!-- Header Section -->
+		<header class="header">
+			<div class="header-content">
+				<h1>Build Your MNC Resume</h1>
+				<p>Create a professional resume tailored for Indian MNC placements. Get hired faster.</p>
+			</div>
+		</header>
+
+		<!-- AdSense Banner - Top -->
+		<div class="ad-space ad-top">
+			<!-- Google AdSense will be placed here -->
+			<div class="placeholder">Advertisement</div>
+		</div>
+
+		<!-- Main Resume Builder Section -->
+		<div class="builder-wrapper">
+			<div class="builder-grid">
+				<!-- Form Section -->
+				<section class="form-section">
+					<div class="form-container">
+						<form id="resumeForm">
+							<!-- Personal Info -->
+							<fieldset>
+								<legend>Personal Information</legend>
+								<div class="form-group">
+									<label for="fullName">Full Name *</label>
+									<input
+										type="text"
+										id="fullName"
+										name="fullName"
+										placeholder="John Doe"
+										required
+									/>
+								</div>
+
+								<div class="form-row">
+									<div class="form-group">
+										<label for="email">Email *</label>
+										<input
+											type="email"
+											id="email"
+											name="email"
+											placeholder="john@example.com"
+											required
+										/>
+									</div>
+									<div class="form-group">
+										<label for="phone">Phone *</label>
+										<input
+											type="tel"
+											id="phone"
+											name="phone"
+											placeholder="+91 98765 43210"
+											required
+										/>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="location">Location *</label>
+									<input
+										type="text"
+										id="location"
+										name="location"
+										placeholder="Mumbai, Maharashtra"
+										required
+									/>
+								</div>
+
+								<div class="form-group">
+									<label for="summary">Professional Summary</label>
+									<textarea
+										id="summary"
+										name="summary"
+										placeholder="Brief overview of your professional background..."
+										rows="3"
+									></textarea>
+								</div>
+							</fieldset>
+
+							<!-- Education -->
+							<fieldset>
+								<legend>Education</legend>
+								<div class="form-group">
+									<label for="degree">Degree *</label>
+									<input
+										type="text"
+										id="degree"
+										name="degree"
+										placeholder="B.Tech in Computer Science"
+										required
+									/>
+								</div>
+
+								<div class="form-row">
+									<div class="form-group">
+										<label for="college">College/University *</label>
+										<input
+											type="text"
+											id="college"
+											name="college"
+											placeholder="IIT Mumbai"
+											required
+										/>
+									</div>
+									<div class="form-group">
+										<label for="graduationYear">Graduation Year *</label>
+										<input
+											type="number"
+											id="graduationYear"
+											name="graduationYear"
+											placeholder="2024"
+											required
+										/>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="cgpa">CGPA/Percentage</label>
+									<input
+										type="text"
+										id="cgpa"
+										name="cgpa"
+										placeholder="8.5 / 10"
+									/>
+								</div>
+							</fieldset>
+
+							<!-- Experience -->
+							<fieldset>
+								<legend>Work Experience</legend>
+								<div class="form-group">
+									<label for="jobTitle">Job Title</label>
+									<input
+										type="text"
+										id="jobTitle"
+										name="jobTitle"
+										placeholder="Software Engineer"
+									/>
+								</div>
+
+								<div class="form-row">
+									<div class="form-group">
+										<label for="company">Company</label>
+										<input
+											type="text"
+											id="company"
+											name="company"
+											placeholder="Tech Company Name"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="duration">Duration (months)</label>
+										<input
+											type="number"
+											id="duration"
+											name="duration"
+											placeholder="12"
+										/>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="jobDescription">Responsibilities & Achievements</label>
+									<textarea
+										id="jobDescription"
+										name="jobDescription"
+										placeholder="• Led development of feature X&#10;• Improved performance by 30%"
+										rows="4"
+									></textarea>
+								</div>
+							</fieldset>
+
+							<!-- Skills -->
+							<fieldset>
+								<legend>Skills</legend>
+								<div class="form-group">
+									<label for="skills">Technical Skills (comma-separated)</label>
+									<textarea
+										id="skills"
+										name="skills"
+										placeholder="Java, Python, React, SQL, AWS, Git"
+										rows="3"
+									></textarea>
+								</div>
+							</fieldset>
+
+							<!-- Projects -->
+							<fieldset>
+								<legend>Projects</legend>
+								<div class="form-group">
+									<label for="projectName">Project Name</label>
+									<input
+										type="text"
+										id="projectName"
+										name="projectName"
+										placeholder="E-commerce Platform"
+									/>
+								</div>
+
+								<div class="form-group">
+									<label for="projectDesc">Project Description</label>
+									<textarea
+										id="projectDesc"
+										name="projectDesc"
+										placeholder="Technologies used and key features..."
+										rows="3"
+									></textarea>
+								</div>
+							</fieldset>
+
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">Update Preview</button>
+								<button type="button" class="btn btn-secondary" id="downloadBtn">Download PDF</button>
+							</div>
+						</form>
+					</div>
+				</section>
+
+				<!-- Preview Section -->
+				<section class="preview-section">
+					<div class="preview-sticky">
+						<h2>Resume Preview</h2>
+						<div id="resumePreview" class="resume-preview">
+							<div class="resume-content">
+								<div class="resume-header">
+									<h3 id="previewName">Your Name</h3>
+									<p id="previewContact" class="contact-info">contact@example.com | +91 XXXXX XXXXX | Mumbai</p>
+								</div>
+
+								<div class="resume-section" id="summarySection" style="display:none;">
+									<h4>Professional Summary</h4>
+									<p id="previewSummary"></p>
+								</div>
+
+								<div class="resume-section" id="educationSection">
+									<h4>Education</h4>
+									<div id="previewEducation">
+										<div class="resume-item">
+											<div class="item-header">
+												<strong>B.Tech in Computer Science</strong>
+												<span class="year">2024</span>
+											</div>
+											<p>IIT Mumbai | CGPA: 8.5</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="resume-section" id="experienceSection" style="display:none;">
+									<h4>Experience</h4>
+									<div id="previewExperience"></div>
+								</div>
+
+								<div class="resume-section" id="skillsSection" style="display:none;">
+									<h4>Technical Skills</h4>
+									<p id="previewSkills"></p>
+								</div>
+
+								<div class="resume-section" id="projectsSection" style="display:none;">
+									<h4>Projects</h4>
+									<div id="previewProjects"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- AdSense Banner - Middle -->
+		<div class="ad-space ad-middle">
+			<div class="placeholder">Advertisement</div>
+		</div>
+
+		<!-- Features Section -->
+		<section class="features">
+			<h2>Why Choose Our Resume Builder?</h2>
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon">📝</div>
+					<h3>MNC-Optimized</h3>
+					<p>Templates designed specifically for Indian MNC job applications</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">📱</div>
+					<h3>Mobile Friendly</h3>
+					<p>Build your resume on any device, anytime, anywhere</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">⚡</div>
+					<h3>Instant Download</h3>
+					<p>Generate professional PDF resumes in seconds</p>
+				</div>
+				<div class="feature-card">
+					<div class="feature-icon">🎨</div>
+					<h3>Professional Design</h3>
+					<p>Clean, ATS-friendly formats that pass automated screening</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- AdSense Banner - Bottom -->
+		<div class="ad-space ad-bottom">
+			<div class="placeholder">Advertisement</div>
+		</div>
+
+		<!-- Tips Section -->
+		<section class="tips">
+			<h2>Resume Tips for MNC Placements</h2>
+			<div class="tips-grid">
+				<div class="tip-card">
+					<h3>1. Quantify Your Achievements</h3>
+					<p>Use numbers and metrics: "Improved performance by 30%" instead of "Made things faster"</p>
+				</div>
+				<div class="tip-card">
+					<h3>2. ATS-Friendly Format</h3>
+					<p>Use standard fonts and simple formatting. Avoid graphics and complex layouts.</p>
+				</div>
+				<div class="tip-card">
+					<h3>3. Highlight Relevant Skills</h3>
+					<p>Focus on technologies and skills required for your target MNC role</p>
+				</div>
+				<div class="tip-card">
+					<h3>4. Keep It Concise</h3>
+					<p>For freshers: 1 page. For experienced: 2 pages maximum.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--primary: #0066cc;
+		--primary-dark: #0052a3;
+		--secondary: #f0f4f9;
+		--text-dark: #1a1a1a;
+		--text-light: #666;
+		--border: #ddd;
+		--spacing: 1rem;
+		--spacing-lg: 2rem;
+		--spacing-xl: 3rem;
+	}
+
+	.container {
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	/* Header */
+	.header {
+		background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+		color: white;
+		padding: var(--spacing-xl) var(--spacing);
+		text-align: center;
+	}
+
+	.header-content h1 {
+		margin: 0 0 0.5rem;
+		font-size: clamp(1.5rem, 5vw, 2.5rem);
+		font-weight: 700;
+	}
+
+	.header-content p {
+		margin: 0;
+		font-size: clamp(0.9rem, 2vw, 1.1rem);
+		opacity: 0.9;
+	}
+
+	/* Ad Spaces */
+	.ad-space {
+		background: var(--secondary);
+		border: 1px solid var(--border);
+		padding: var(--spacing);
+		text-align: center;
+		margin: var(--spacing) 0;
+	}
+
+	.placeholder {
+		color: var(--text-light);
+		font-size: 0.9rem;
+		min-height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f9f9f9;
+		border: 1px dashed var(--border);
+		border-radius: 4px;
+	}
+
+	/* Builder Grid */
+	.builder-wrapper {
+		padding: var(--spacing-lg);
+		background: white;
+	}
+
+	.builder-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-xl);
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	@media (max-width: 768px) {
+		.builder-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-lg);
+		}
+	}
+
+	/* Form Section */
+	.form-section {
+		flex: 1;
+	}
+
+	.form-container {
+		background: white;
+		border-radius: 8px;
+	}
+
+	fieldset {
+		border: none;
+		padding: 0 0 var(--spacing-lg) 0;
+		margin: 0 0 var(--spacing-lg) 0;
+		border-bottom: 1px solid var(--border);
+	}
+
+	fieldset:last-of-type {
+		border-bottom: none;
+	}
+
+	legend {
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: var(--text-dark);
+		margin-bottom: var(--spacing);
+	}
+
+	.form-group {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing);
+	}
+
+	@media (max-width: 640px) {
+		.form-row {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		color: var(--text-dark);
+		font-size: 0.95rem;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		padding: 0.75rem;
+		border: 1px solid var(--border);
+		border-radius: 4px;
+		font-size: 1rem;
+		font-family: inherit;
+		transition: border-color 0.2s;
+	}
+
+	input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: var(--primary);
+		box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	.form-actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing);
+		margin-top: var(--spacing-xl);
+	}
+
+	@media (max-width: 640px) {
+		.form-actions {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.btn {
+		padding: 0.75rem 1.5rem;
+		border: none;
+		border-radius: 4px;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s;
+	}
+
+	.btn-primary {
+		background: var(--primary);
+		color: white;
+	}
+
+	.btn-primary:hover {
+		background: var(--primary-dark);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+	}
+
+	.btn-secondary {
+		background: var(--secondary);
+		color: var(--text-dark);
+		border: 2px solid var(--border);
+	}
+
+	.btn-secondary:hover {
+		background: var(--border);
+		border-color: var(--text-light);
+	}
+
+	/* Preview Section */
+	.preview-section {
+		flex: 1;
+	}
+
+	@media (max-width: 768px) {
+		.preview-sticky {
+			position: static;
+		}
+	}
+
+	@media (min-width: 769px) {
+		.preview-sticky {
+			position: sticky;
+			top: var(--spacing);
+			max-height: calc(100vh - 100px);
+			overflow-y: auto;
+		}
+	}
+
+	.resume-preview {
+		background: white;
+		border: 2px solid var(--border);
+		border-radius: 8px;
+		padding: var(--spacing-lg);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+
+	.resume-content {
+		font-family: 'Calibri', 'Arial', sans-serif;
+	}
+
+	.resume-header {
+		margin-bottom: var(--spacing-lg);
+		border-bottom: 2px solid var(--primary);
+		padding-bottom: var(--spacing);
+	}
+
+	.resume-header h3 {
+		margin: 0 0 0.25rem 0;
+		font-size: 1.3rem;
+		color: var(--text-dark);
+	}
+
+	.contact-info {
+		margin: 0;
+		color: var(--text-light);
+		font-size: 0.85rem;
+	}
+
+	.resume-section {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.resume-section h4 {
+		margin: 0 0 0.75rem 0;
+		font-size: 1rem;
+		color: var(--primary);
+		font-weight: 600;
+		border-bottom: 1px solid var(--border);
+		padding-bottom: 0.5rem;
+	}
+
+	.resume-item {
+		margin-bottom: var(--spacing);
+	}
+
+	.item-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		margin-bottom: 0.25rem;
+	}
+
+	.year {
+		color: var(--text-light);
+		font-size: 0.85rem;
+	}
+
+	.resume-item strong {
+		color: var(--text-dark);
+	}
+
+	.resume-item p {
+		margin: 0.25rem 0;
+		color: var(--text-light);
+	}
+
+	/* Features Section */
+	.features {
+		padding: var(--spacing-xl) var(--spacing);
+		background: var(--secondary);
+		text-align: center;
+	}
+
+	.features h2 {
+		margin: 0 0 var(--spacing-xl) 0;
+		font-size: clamp(1.5rem, 4vw, 2rem);
+		color: var(--text-dark);
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: var(--spacing-lg);
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.feature-card {
+		background: white;
+		padding: var(--spacing-lg);
+		border-radius: 8px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+
+	.feature-icon {
+		font-size: 2.5rem;
+		margin-bottom: var(--spacing);
+	}
+
+	.feature-card h3 {
+		margin: 0 0 0.5rem 0;
+		color: var(--text-dark);
+		font-size: 1.1rem;
+	}
+
+	.feature-card p {
+		margin: 0;
+		color: var(--text-light);
+	}
+
+	/* Tips Section */
+	.tips {
+		padding: var(--spacing-xl) var(--spacing);
+		background: white;
+	}
+
+	.tips h2 {
+		margin: 0 0 var(--spacing-xl) 0;
+		font-size: clamp(1.5rem, 4vw, 2rem);
+		color: var(--text-dark);
+		text-align: center;
+	}
+
+	.tips-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: var(--spacing-lg);
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.tip-card {
+		background: var(--secondary);
+		padding: var(--spacing-lg);
+		border-radius: 8px;
+		border-left: 4px solid var(--primary);
+	}
+
+	.tip-card h3 {
+		margin: 0 0 0.5rem 0;
+		color: var(--text-dark);
+		font-size: 1rem;
+	}
+
+	.tip-card p {
+		margin: 0;
+		color: var(--text-light);
+		font-size: 0.95rem;
+	}
+</style>
+
+<script>
+	// Resume form handling
+	const form = document.getElementById('resumeForm');
+	const downloadBtn = document.getElementById('downloadBtn');
+
+	// Update preview when form changes
+	form.addEventListener('change', updatePreview);
+	form.addEventListener('input', updatePreview);
+
+	function updatePreview() {
+		// Personal Info
+		document.getElementById('previewName').textContent =
+			document.getElementById('fullName').value || 'Your Name';
+
+		const email = document.getElementById('email').value;
+		const phone = document.getElementById('phone').value;
+		const location = document.getElementById('location').value;
+		document.getElementById('previewContact').textContent =
+			`${email || 'contact@example.com'} | ${phone || '+91 XXXXX XXXXX'} | ${location || 'City'}`;
+
+		// Summary
+		const summary = document.getElementById('summary').value;
+		const summarySection = document.getElementById('summarySection');
+		if (summary) {
+			summarySection.style.display = 'block';
+			document.getElementById('previewSummary').textContent = summary;
+		} else {
+			summarySection.style.display = 'none';
+		}
+
+		// Education
+		const degree = document.getElementById('degree').value;
+		const college = document.getElementById('college').value;
+		const year = document.getElementById('graduationYear').value;
+		const cgpa = document.getElementById('cgpa').value;
+
+		if (degree || college) {
+			document.getElementById('previewEducation').innerHTML = `
+				<div class="resume-item">
+					<div class="item-header">
+						<strong>${degree || 'Degree'}</strong>
+						<span class="year">${year || 'Year'}</span>
+					</div>
+					<p>${college || 'University'}${cgpa ? ' | CGPA: ' + cgpa : ''}</p>
+				</div>
+			`;
+		}
+
+		// Experience
+		const jobTitle = document.getElementById('jobTitle').value;
+		const company = document.getElementById('company').value;
+		const jobDesc = document.getElementById('jobDescription').value;
+		const experienceSection = document.getElementById('experienceSection');
+
+		if (jobTitle || company) {
+			experienceSection.style.display = 'block';
+			document.getElementById('previewExperience').innerHTML = `
+				<div class="resume-item">
+					<div class="item-header">
+						<strong>${jobTitle || 'Job Title'}</strong>
+					</div>
+					<p>${company || 'Company Name'}</p>
+					${jobDesc ? '<p>' + jobDesc.replace(/\n/g, '<br>') + '</p>' : ''}
+				</div>
+			`;
+		} else {
+			experienceSection.style.display = 'none';
+		}
+
+		// Skills
+		const skills = document.getElementById('skills').value;
+		const skillsSection = document.getElementById('skillsSection');
+		if (skills) {
+			skillsSection.style.display = 'block';
+			document.getElementById('previewSkills').textContent = skills;
+		} else {
+			skillsSection.style.display = 'none';
+		}
+
+		// Projects
+		const projectName = document.getElementById('projectName').value;
+		const projectDesc = document.getElementById('projectDesc').value;
+		const projectsSection = document.getElementById('projectsSection');
+
+		if (projectName || projectDesc) {
+			projectsSection.style.display = 'block';
+			document.getElementById('previewProjects').innerHTML = `
+				<div class="resume-item">
+					<strong>${projectName || 'Project Name'}</strong>
+					${projectDesc ? '<p>' + projectDesc + '</p>' : ''}
+				</div>
+			`;
+		} else {
+			projectsSection.style.display = 'none';
+		}
+	}
+
+	// Download PDF functionality
+	downloadBtn.addEventListener('click', async () => {
+		// Check if html2pdf is available, otherwise provide instructions
+		if (typeof html2pdf === 'undefined') {
+			alert('PDF download feature will be available soon. For now, use your browser\'s print function (Ctrl+P or Cmd+P) and save as PDF.');
+			return;
+		}
+
+		const element = document.getElementById('resumePreview');
+		const opt = {
+			margin: 10,
+			filename: 'resume.pdf',
+			image: { type: 'jpeg', quality: 0.98 },
+			html2canvas: { scale: 2 },
+			jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+		};
+		html2pdf().set(opt).from(element).save();
+	});
+
+	// Load sample data on page load
+	window.addEventListener('load', updatePreview);
+</script>

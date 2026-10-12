@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - Resume Builder for MNC Jobs">
+	<main class="container">
+		<header class="header">
+			<div class="header-content">
+				<h1>About Resume Builder</h1>
+				<p>Your companion in landing your dream MNC job</p>
+			</div>
+		</header>
+
+		<div class="content-wrapper">
+			<section class="about-section">
+				<h2>Our Mission</h2>
+				<p>
+					We believe every talented professional deserves a chance to work with their dream company. Our mission is to help students and job aspirants create professional resumes that stand out and get noticed by MNC recruiters.
+				</p>
+				<p>
+					Whether you're a college student preparing for placements or an experienced professional aiming for a new opportunity, our resume builder makes it easy to create a polished, ATS-friendly resume in minutes.
+				</p>
+			</section>
+
+			<section class="about-section">
+				<h2>Why We Built This</h2>
+				<p>
+					We noticed that many talented candidates struggle with resume writing. Common issues include:
+				</p>
+				<ul>
+					<li>Not knowing how to highlight achievements effectively</li>
+					<li>Resume being rejected by ATS systems due to poor formatting</li>
+					<li>Spending hours on design instead of content</li>
+					<li>Not understanding what MNC recruiters look for</li>
+				</ul>
+				<p>
+					Our resume builder solves these problems by providing smart templates, real-time preview, and best practices specifically tailored for Indian MNC placements.
+				</p>
+			</section>
+
+			<section class="about-section">
+				<h2>Features</h2>
+				<div class="features-list">
+					<div class="feature">
+						<h3>📝 Smart Resume Builder</h3>
+						<p>Simple form-based interface to build your resume. Real-time preview as you type.</p>
+					</div>
+					<div class="feature">
+						<h3>🎨 Professional Templates</h3>
+						<p>ATS-friendly, clean designs optimized for both human recruiters and automated screening.</p>
+					</div>
+					<div class="feature">
+						<h3>📱 Mobile Friendly</h3>
+						<p>Build your resume on any device - smartphone, tablet, or desktop.</p>
+					</div>
+					<div class="feature">
+						<h3>📥 Instant Download</h3>
+						<p>Download your resume as PDF with a single click. Share or email to recruiters.</p>
+					</div>
+					<div class="feature">
+						<h3>💡 Resume Tips</h3>
+						<p>Expert guidance on resume writing, interview preparation, and salary negotiation.</p>
+					</div>
+					<div class="feature">
+						<h3>✅ Completely Free</h3>
+						<p>No hidden charges, no premium features. Build unlimited resumes for free.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="about-section">
+				<h2>For Students & Job Aspirants</h2>
+				<p>
+					If you're preparing for campus placements or applying to MNCs, use our resume builder to:
+				</p>
+				<ul>
+					<li>Create a professional resume that gets past ATS screening</li>
+					<li>Learn from our resume writing tips and best practices</li>
+					<li>Prepare for technical and behavioral interviews</li>
+					<li>Understand salary negotiation strategies</li>
+				</ul>
+			</section>
+
+			<section class="about-section">
+				<h2>How to Get Started</h2>
+				<ol>
+					<li>Go to our <a href="/">Resume Builder</a></li>
+					<li>Fill in your details - personal info, education, experience, skills, projects</li>
+					<li>See your resume update in real-time on the right side</li>
+					<li>Download as PDF when you're satisfied</li>
+					<li>Check our <a href="/tips">Tips & Prep</a> section for guidance</li>
+				</ol>
+			</section>
+
+			<section class="about-section">
+				<h2>Contact & Support</h2>
+				<p>
+					Have questions or feedback? We'd love to hear from you!
+				</p>
+				<p>
+					<strong>Email:</strong> support@resumebuilder.com<br>
+					<strong>Follow us:</strong>
+					<a href="#" target="_blank">Twitter</a> |
+					<a href="#" target="_blank">LinkedIn</a> |
+					<a href="#" target="_blank">Instagram</a>
+				</p>
+			</section>
+
+			<section class="about-section">
+				<h2>Disclaimer</h2>
+				<p>
+					This website is for informational purposes. While we provide resume tips and templates, we recommend having your resume reviewed by mentors or career counselors before final submission. Job placement depends on various factors including qualifications, interview performance, and market conditions.
+				</p>
+			</section>
+		</div>
+
+		<div class="ad-space">
+			<div class="placeholder">Advertisement</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--primary: #0066cc;
+		--secondary: #f0f4f9;
+		--text-dark: #1a1a1a;
+		--text-light: #666;
+		--border: #ddd;
+		--spacing: 1rem;
+		--spacing-lg: 2rem;
+		--spacing-xl: 3rem;
+	}
+
+	.container {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+
+	.header {
+		background: linear-gradient(135deg, var(--primary) 0%, #0052a3 100%);
+		color: white;
+		padding: var(--spacing-xl) var(--spacing);
+		text-align: center;
+	}
+
+	.header-content h1 {
+		margin: 0 0 0.5rem;
+		font-size: clamp(1.5rem, 5vw, 2.5rem);
+	}
+
+	.header-content p {
+		margin: 0;
+		opacity: 0.9;
+	}
+
+	.content-wrapper {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: var(--spacing-xl) var(--spacing);
+	}
+
+	.about-section {
+		margin-bottom: var(--spacing-xl);
+		padding-bottom: var(--spacing-xl);
+		border-bottom: 1px solid var(--border);
+	}
+
+	.about-section:last-of-type {
+		border-bottom: none;
+	}
+
+	.about-section h2 {
+		color: var(--primary);
+		margin: 0 0 var(--spacing-lg) 0;
+		font-size: 1.5rem;
+	}
+
+	.about-section p {
+		color: var(--text-light);
+		line-height: 1.8;
+		margin: 0 0 var(--spacing) 0;
+	}
+
+	.about-section ul,
+	.about-section ol {
+		margin: var(--spacing) 0;
+		padding-left: 1.5rem;
+		color: var(--text-light);
+		line-height: 1.8;
+	}
+
+	.about-section li {
+		margin: 0.5rem 0;
+	}
+
+	.about-section a {
+		color: var(--primary);
+		text-decoration: none;
+	}
+
+	.about-section a:hover {
+		text-decoration: underline;
+	}
+
+	.features-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: var(--spacing-lg);
+		margin: var(--spacing-lg) 0;
+	}
+
+	.feature {
+		background: var(--secondary);
+		padding: var(--spacing-lg);
+		border-radius: 8px;
+		border-left: 4px solid var(--primary);
+	}
+
+	.feature h3 {
+		margin: 0 0 var(--spacing) 0;
+		color: var(--text-dark);
+		font-size: 1.1rem;
+	}
+
+	.feature p {
+		margin: 0;
+		color: var(--text-light);
+	}
+
+	.ad-space {
+		background: var(--secondary);
+		padding: var(--spacing);
+		text-align: center;
+		margin: var(--spacing-xl) 0;
+	}
+
+	.placeholder {
+		color: var(--text-light);
+		min-height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f9f9f9;
+		border: 1px dashed var(--border);
+		border-radius: 4px;
+	}
+
+	@media (max-width: 768px) {
+		.content-wrapper {
+			padding: var(--spacing-lg) var(--spacing);
+		}
+	}
+</style>
